@@ -75,5 +75,10 @@ To download and install the APK from a GitHub release:
 ## Troubleshooting
 
 - If the GitHub Action fails, check the workflow logs for error messages
+  - Common issue: Missing keystore file for signing the APK
+  - Solution: Set up the `KEYSTORE_BASE64` secret in your GitHub repository settings
+    - Generate a keystore file locally
+    - Convert it to base64: `base64 -i fivia.keystore -o fivia.keystore.base64`
+    - Add the content as a secret named `KEYSTORE_BASE64` in your repository settings
 - If users report installation issues, ensure they have enabled "Install from Unknown Sources"
 - For any other issues, please create a GitHub issue with detailed information
