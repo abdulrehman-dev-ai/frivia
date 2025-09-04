@@ -1,0 +1,26 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="256" cy="256" r="240" fill="#8A2BE2" />
+  
+  <!-- Inner Circle -->
+  <circle cx="256" cy="256" r="200" fill="#9932CC" />
+  
+  <!-- Letter F -->
+  <path d="M150 150 L150 350 L200 350 L200 270 L250 270 L250 220 L200 220 L200 200 L260 200 L260 150 Z" fill="#FFD700" />
+  
+  <!-- Quiz Icons -->
+  <!-- Question Mark -->
+  <path d="M300 150 C330 150 350 170 350 200 C350 220 340 230 330 240 C320 250 310 260 310 270 L310 280 L270 280 L270 270 C270 250 280 240 290 230 C300 220 310 210 310 200 C310 190 300 180 290 180 C280 180 270 190 270 200 L230 200 C230 170 260 150 300 150 Z" fill="#FFD700" />
+  
+  <!-- Question Mark Dot -->
+  <circle cx="290" cy="320" r="20" fill="#FFD700" />
+  
+  <!-- Light Reflection -->
+  <circle cx="180" cy="180" r="20" fill="#FFFFFF" opacity="0.3" />
+  
+  <!-- Sparkles -->
+  <circle cx="350" cy="150" r="8" fill="#FFFFFF" opacity="0.7" />
+  <circle cx="380" cy="200" r="6" fill="#FFFFFF" opacity="0.7" />
+  <circle cx="150" cy="350" r="7" fill="#FFFFFF" opacity="0.7" />
+  <circle cx="200" cy="380" r="5" fill="#FFFFFF" opacity="0.7" />
+</svg>

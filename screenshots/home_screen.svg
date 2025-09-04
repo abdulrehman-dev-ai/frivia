@@ -1,0 +1,20 @@
+<svg width="300" height="600" viewBox="0 0 300 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Gradient -->
+  <rect width="300" height="600" fill="url(#bg-gradient)" />
+  
+  <!-- App Title -->
+  <text x="150" y="200" font-family="Arial" font-size="48" font-weight="bold" text-anchor="middle" fill="white">FIVIA</text>
+  <text x="150" y="240" font-family="Arial" font-size="18" font-weight="normal" text-anchor="middle" fill="white" opacity="0.7">Trivia Quiz App</text>
+  
+  <!-- Start Button -->
+  <rect x="75" y="320" width="150" height="50" rx="25" fill="#FFC107" />
+  <text x="150" y="353" font-family="Arial" font-size="20" font-weight="bold" text-anchor="middle" fill="#333">START QUIZ</text>
+  
+  <!-- Gradient Definition -->
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1976D2" />
+      <stop offset="100%" style="stop-color:#9C27B0" />
+    </linearGradient>
+  </defs>
+</svg>
