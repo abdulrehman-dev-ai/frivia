@@ -26,15 +26,35 @@ jobs:
 
       - name: Get dependencies
         run: flutter pub get
+        
+      - name: Create Keystore
+        id: create-keystore
+        run: |
+          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > fivia.keystore
+          echo "storePassword=fivia123" > android/key.properties
+          echo "keyPassword=fivia123" >> android/key.properties
+          echo "keyAlias=fivia" >> android/key.properties
+          echo "storeFile=../fivia.keystore" >> android/key.properties
+        # If KEYSTORE_BASE64 secret is not set, create a debug keystore
+        continue-on-error: true
+
+      - name: Create Debug Keystore if Release Keystore Creation Failed
+        if: steps.create-keystore.outcome == 'failure'
+        run: |
+          keytool -genkey -v -keystore fivia.keystore -alias fivia -keyalg RSA -keysize 2048 -validity 10000 -storepass fivia123 -keypass fivia123 -dname "CN=Frivia App, OU=Development, O=Frivia, L=City, S=State, C=US"
+          echo "storePassword=fivia123" > android/key.properties
+          echo "keyPassword=fivia123" >> android/key.properties
+          echo "keyAlias=fivia" >> android/key.properties
+          echo "storeFile=../fivia.keystore" >> android/key.properties
 
       - name: Build APK
         run: flutter build apk --release
 
-      - name: Upload APK to Latest Release
+      - name: Upload APK to Release
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: build/app/outputs/flutter-apk/app-release.apk
-          asset_name: frivia-latest.apk
-          tag: latest
+          asset_name: frivia-${{ github.ref_name }}.apk
+          tag: ${{ github.ref_name }}
           overwrite: true
